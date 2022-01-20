@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   # get "restaurants/:id", to: "restaurants#show"
   # #post a new restaurant
   # post "restaurants", to: "restaurants#create"
-  resources :restaurants
+  resources :restaurants do
+    #QUESTION --> Why do we put these routes within restaurants routes?
+    #QUESTION --> What is the point of Prefixes?
+    resources :reviews, only: [ :new, :create ]
+  end
 end
